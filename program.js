@@ -12,8 +12,24 @@ add([
     sprite("kartka")
 ])
 
-add([
+const balwan = add([
     sprite("balwan"),
     pos(140,180) 
 ])
 
+let wprawo = true
+
+balwan.onUpdate(() => {
+
+    if(wprawo && balwan.pos.x < 500)
+        balwan.pos.x += 1
+
+    else if(!wprawo && balwan.pos.x > 20)
+        balwan.pos.x -= 1
+
+        else wprawo ^= true
+
+
+})
+
+onMouseRelease(()=>play("muzyka"))
